@@ -24,26 +24,7 @@ prompt3_doc = '''
   {violations_list} – перечень зафиксированных нарушений правил дорожного движения.
 '''
 
-
 from langchain_core.prompts import PromptTemplate
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
-import os
-from dotenv import load_dotenv
-from langchain_mistralai.chat_models import ChatMistralAI
-
-load_dotenv() 
-
-
-
-MODEL_NAME = os.getenv("MODEL_NAME", "open-mistral-7b")
-
-llm = ChatMistralAI(
-    model=MODEL_NAME,
-    temperature=0.8
-)
-
-
 
 prompt1 = PromptTemplate.from_template("Привет, {client_name}! Меня зовут Оксана и я представляю бренд {brend_name}. Я хотела бы задать вам несколько вопросов, Вы не против участия в анонимном опросе?")
 
@@ -63,4 +44,4 @@ print(message_1_2)
 print(message_2_1)
 print(message_2_2)
 print(message_3_1)
-print(message_3_2)
+print(message_3_2) 
